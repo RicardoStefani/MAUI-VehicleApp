@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VehicleAppBCA.Views.VehiclePage"
+             Title="Vehicle Page">
+
+    <VerticalStackLayout Spacing="10" Margin="20, 20, 20, 0">
+        <Frame Padding="10, 2, 10, 2">
+            <HorizontalStackLayout>
+                <Entry x:Name="entryMake" Placeholder="Make"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10, 2, 10, 2">
+            <HorizontalStackLayout>
+                <Entry x:Name="entryModel" Placeholder="Model"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10, 2, 10, 2">
+            <HorizontalStackLayout>
+                <Entry x:Name="entryEngineSize" Placeholder="Engine Size"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10, 2, 10, 2">
+            <HorizontalStackLayout>
+                <Entry x:Name="entryMileage" Placeholder="Mileage" Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10, 2, 10, 2">
+            <HorizontalStackLayout>
+                <Entry x:Name="entryStartingBid" Placeholder="Starting Bid"  Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10, 2, 10, 2">
+            <HorizontalStackLayout>
+                <Label Text="Favourite"/>
+                <CheckBox x:Name="checkBoxFavourite" />
+            </HorizontalStackLayout>
+        </Frame>
+        <Button x:Name="btnSave" Text="Save" Clicked="OnButtonSave"></Button>
+    </VerticalStackLayout>
+</ContentPage>

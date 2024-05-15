@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VehicleAppBCA.Views.VehiclesPage"
+             Title="VehiclesPage">
+    <VerticalStackLayout>
+        <Button x:Name="btnCreate" Text="Create" Clicked="OnButtonCreate"></Button>
+    
+        <ListView x:Name="ListVehicles"
+                    ItemSelected="OnItemSelectedChanged"
+                    SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions Spacing="10">
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <HorizontalStackLayout Grid.Row="0" Grid.Column="0" >
+                                    <Label Text="{Binding model}" FontAttributes="Bold" />
+                                    <Label Text=" / " FontAttributes="Bold" />
+                                    <Label Text="{Binding make}" FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Row="0" Grid.Column="1" >
+                                    <Label Text="Favourite"
+                                            FontAttributes="Italic"
+                                            VerticalOptions="End" />
+                                    <CheckBox IsChecked="{Binding favourite}" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Row="1" Grid.Column="0" >
+                                    <Label Text="{Binding startingBid}" FontAttributes="Bold" />
+                                    <Label Text=" / " FontAttributes="Bold" />
+                                    <Label Text="{Binding auctionDateTime}" FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+</ContentPage>
