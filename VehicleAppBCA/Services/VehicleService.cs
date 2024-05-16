@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using VehicleAppBCA.Model;
 
@@ -7,6 +8,7 @@ namespace VehicleAppBCA.Services
 	public class VehicleService
 	{
         private static List<Vehicle> vehicles = new List<Vehicle>();
+        //private ObservableCollection<Vehicle> vehicles = new ObservableCollection<Vehicle>();
 
         protected VehicleService()
         {
@@ -28,8 +30,8 @@ namespace VehicleAppBCA.Services
           }
           else
           {
-            var index  = vehicles.FindIndex(x => x.id == vehicle.id);
-            vehicles[index] = vehicle;
+            RemoveVehicle(vehicle.id);
+            vehicles.Add(vehicle);
           }
           
           return vehicles;
@@ -37,16 +39,16 @@ namespace VehicleAppBCA.Services
         
         public List<Vehicle> RemoveVehicle(int id)
         {
-            var index  = vehicles.FindIndex(x => x.id == id);
+            var vehicleRemove  = vehicles.FirstOrDefault(x => x.id == id); //vehicles.FindIndex(x => x.id == id);
             
-            vehicles.RemoveAt(index);
+            vehicles.Remove(vehicleRemove);
 
             return vehicles;
         }
-        
-        public Vehicle GetVehicle(int id)
+
+        public Vehicle? GetVehicle(int id)
         {
-            return vehicles.Find(x => x.id == id);
+            return vehicles.FirstOrDefault(x => x.id == id);
         }
 
         public List<Vehicle> GetVehicles()

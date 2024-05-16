@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.ObjectModel;
 using VehicleAppBCA.Model;
 using VehicleAppBCA.Services;
 
@@ -6,20 +7,28 @@ namespace VehicleAppBCA.Views;
 
 public partial class VehiclesPage : ContentPage
 {
-    //public List<Vehicle> Vehicles { get; private set; } = new List<Vehicle>();
+    public ObservableCollection<Vehicle> Vehicles { get; set; } = new ObservableCollection<Vehicle>();
     private VehicleService vehicleService;
 
     public VehiclesPage()
     {
         InitializeComponent();
         this.vehicleService = VehicleService.Build();
+        ListVehicles.ItemsSource = this.Vehicles;
+        
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        //ListVehicles.ItemsSource = this.vehicleService.GetVehicles();
         var list = this.vehicleService.GetVehicles();
-        ListVehicles.ItemsSource = list;
+        this.Vehicles.Clear();
+        foreach(var vehicle in list)
+        {
+            this.Vehicles.Add(vehicle);
+        }
+
     }
 
     public async void OnItemSelectedChanged(object sender, SelectedItemChangedEventArgs e)
