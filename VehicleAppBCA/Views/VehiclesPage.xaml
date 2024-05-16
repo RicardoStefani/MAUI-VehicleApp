@@ -30,7 +30,7 @@
                                     <Label Text="Favourite"
                                             FontAttributes="Italic"
                                             VerticalOptions="End" />
-                                    <CheckBox x:Name="{Binding id}" IsChecked="{Binding favourite}" CheckedChanged="OnFavouriteCheckBoxhanged"/>
+                                    <CheckBox x:Name="Test01" IsChecked="{Binding favourite}" CheckedChanged="OnFavouriteCheckBoxhanged"/>
                                 </HorizontalStackLayout>
                                 <HorizontalStackLayout Grid.Row="1" Grid.Column="0" >
                                     <Label Text="{Binding startingBid}" FontAttributes="Bold" />

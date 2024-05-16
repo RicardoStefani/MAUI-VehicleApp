@@ -21,7 +21,6 @@ public partial class VehiclesPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        //ListVehicles.ItemsSource = this.vehicleService.GetVehicles();
         var list = this.vehicleService.GetVehicles();
         this.Vehicles.Clear();
         foreach(var vehicle in list)
@@ -44,6 +43,8 @@ public partial class VehiclesPage : ContentPage
 
     void OnFavouriteCheckBoxhanged(object sender, CheckedChangedEventArgs e)
     {
-        // Perform required operation after examining e.Value
+        var checkBox = (CheckBox)sender;
+        var vehicle = (Vehicle)checkBox.BindingContext;
+        this.vehicleService.SetFavourite(vehicle.id, e.Value);
     }
 }

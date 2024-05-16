@@ -37,6 +37,12 @@ namespace VehicleAppBCA.Services
           return vehicles;
         }
         
+        public void SetFavourite(int id, bool isFavourite)
+        {
+          var vehicle  = vehicles.FirstOrDefault(x => x.id == id);
+          vehicle.favourite = isFavourite;
+        }
+
         public List<Vehicle> RemoveVehicle(int id)
         {
             var vehicleRemove  = vehicles.FirstOrDefault(x => x.id == id); //vehicles.FindIndex(x => x.id == id);
