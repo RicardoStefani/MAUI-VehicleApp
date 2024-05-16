@@ -37,5 +37,6 @@
             </HorizontalStackLayout>
         </Frame>
         <Button x:Name="btnSave" Text="Save" Clicked="OnButtonSave"></Button>
+        <Button x:Name="btnRemove" Background="Red" Text="Remove" Clicked="OnButtonRemove"></Button>
     </VerticalStackLayout>
 </ContentPage>

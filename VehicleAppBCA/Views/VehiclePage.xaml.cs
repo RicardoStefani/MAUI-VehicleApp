@@ -30,7 +30,7 @@ public partial class VehiclePage : ContentPage
 		InitializeComponent();
 	}
 
-	public void OnButtonSave(object sender, EventArgs e)
+	public async void OnButtonSave(object sender, EventArgs e)
 	{
 		this.vehicle.make = entryMake.Text;
 		this.vehicle.model = entryModel.Text;
@@ -40,5 +40,14 @@ public partial class VehiclePage : ContentPage
 		this.vehicle.favourite = checkBoxFavourite.IsChecked;
 		
 		this.vehicleService.SaveVehicle(vehicle);
+
+        await Shell.Current.GoToAsync("..");
+	}
+
+	public async void OnButtonRemove(object sender, EventArgs e)
+	{
+		this.vehicleService.RemoveVehicle(vehicle.id);
+		
+        await Shell.Current.GoToAsync("..");
 	}
 }
