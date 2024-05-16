@@ -33,10 +33,8 @@ public partial class VehiclesPage : ContentPage
         await Shell.Current.GoToAsync($"{nameof(VehiclePage)}");
     }
 
-    public void OnTextChanged(object sender, EventArgs e)
+    void OnFavouriteCheckBoxhanged(object sender, CheckedChangedEventArgs e)
     {
-        SearchBar searchBar = (SearchBar)sender;
-        DisplayAlert("", searchBar.Text, "Done");
-        //searchResults.ItemsSource = DataService.GetSearchResults(searchBar.Text);
+        // Perform required operation after examining e.Value
     }
 }
